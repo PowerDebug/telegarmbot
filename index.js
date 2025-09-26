@@ -36,7 +36,7 @@ const start = async () => {
 
         try {
             if (text === '/start') {
-                await UserModel.create({chatId})
+                // await UserModel.create({chatId})
                 await bot.sendSticker(chatId, 'https://tlgrm.ru/_/stickers/2ad/834/2ad8341a-31fd-36c7-9af3-10820cfcbe51/1.webp')
                 return bot.sendMessage(chatId, `Добро пожаловать в телеграмм бот тест `)
             }
