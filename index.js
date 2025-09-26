@@ -30,7 +30,7 @@ const start = async () => {
         {command: '/game', description: 'Сыграть в игру, угадай число!'},
     ])
 
-    bot.on('message',  async msg=> {
+    bot.on('message',  async msg => {
         const text = msg.text
         const  chatId = msg.chat.id
 
@@ -47,7 +47,9 @@ const start = async () => {
             if (text === '/game') {
                 startGame(chatId)
             }
-            return bot.sendMessage(chatId,'Я тебя не понимаю, поробуй ещё раз!')
+            else {
+                return bot.sendMessage(chatId,'Я тебя не понимаю, поробуй ещё раз!')
+            }
         } catch (e) {
             return bot.sendMessage(chatId, 'Произошла ошибка ALERT!')
         }
@@ -62,7 +64,7 @@ const start = async () => {
         }
         const user = await UserModel.findOne({chatId})
 
-        if (data == chats[chatId]) {
+        if (data === chats[chatId]) {
             user.right += 1;
             await bot.sendMessage(chatId, `Поздравляю ты отгадал цифру ${chats[chatId]}`, againOptions)
         } else {

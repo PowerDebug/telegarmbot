@@ -1,7 +1,7 @@
-const suquelize = require('./db');
+const sequelize = require('./db');
 const {DataTypes} = require('sequelize');
 
-const User = suquelize.define('user', {
+const User = sequelize.define('isobel', {
     id: {type: DataTypes.INTEGER, primaryKey: true, unique: true, autoIncrement: true},
     chatId: {type: DataTypes.STRING, unique: true},
     right: {type: DataTypes.INTEGER, defaultValue: 0},
